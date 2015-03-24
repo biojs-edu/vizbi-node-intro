@@ -1,0 +1,88 @@
+.code-alongside-wrap {
+  overflow: auto;
+}
+.code-alongside-wrap div, .code-alongside-wrap code {
+  float: left;
+  width: 50%;
+  font-size: 1.75rem;
+}
+.code-alongside-wrap code {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.reveal section img {
+    border: 0;
+}
+
+.reveal .no-shadow {
+    box-shadow: none;
+}
+
+.reveal .vert-align {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.rev-bg-red .reveal .state-background {
+    background: rgba( 255, 165, 0, 1 );
+}
+
+body{
+    background: white;
+}
+
+.rev-bg-red.reveal section h1 {
+    color: white;
+}
+
+.rev-bg-green .reveal .state-background {
+    background: rgba( 0, 255, 23, 1 );
+}
+
+.rev-bg-pink .reveal .state-background {
+    background: rgba(234, 108, 228, 1);
+}
+
+.little-console-large code {
+    height: 14em;
+}
+
+.reveal section .img-none {
+    box-shadow: none;
+}
+.reveal .footer {
+  position: absolute;
+  bottom: 0.5em;
+  left: 1em;
+  font-size: 0.5em;
+}
+
+/*specific for this talk*/
+#biojs-logo img {
+    transform: rotate(0deg);
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+#biojs-logo:hover {
+    transform: rotate(180deg);
+    color: red;
+}
+#biojs-logo {
+    width: 30%;
+}
+
+#biojs-name {
+  display: inline-block;
+  font-size: 2em;
+  margin: 0;
+  line-height: 1em;
+  vertical-align: middle;
+  margin-left: 0.1em;
+  margin-right: 0.5em;
+  font-weight: 100;
+  text-transform: uppercase;
+}

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Node Intro</title>
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+	<!--<link rel="stylesheet" href="reveal.js/css/print/pdf.min.css"> -->
+
+	<link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<!-- CSS tables -->
+	<link rel="stylesheet" href="css/pure-min.css">
+
+	<link rel="stylesheet" href="custom.css" id="theme">
+
+	<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+
+
+</head>
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section>
+<span data-markdown>
+<script type="text/template">
+# Node & Npm
+
+</script>
+</span>
+
+<br>
+<img src="./img/node.png" style="height: 4em" class="img-none"> <br>
+<img src="./img/npm.png" style="height: 4em" class="img-none">
+
+</section>
+
+<section>
+<span data-markdown>
+<script type="text/template">
+##  Scripttag hell
+
+</script>
+</span>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Hell no!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;d3.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;underscore.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;backbone.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;fancy.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;tree.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;server.js&quot;&gt;&lt;/script&gt;
+//ongoing...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+
+<section data-state="tree-state">
+<span data-markdown >
+<script type="text/template">
+##  Scripttag hell
+
+</script>
+</span>
+<style>
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: red;
+  stroke-width: 0.05em;
+}
+
+.node text {
+  font: 0.8em sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 0.1em;
+}
+</style>
+
+<div id="d3-tree" height="100%"></div>
+</section>
+
+
+
+<section>
+<span data-markdown>
+<script type="text/template">
+# Node
+
+* JS runtime environment (on top of V8)
+* cross-platform
+* popular for throughput (e.g. realtime apps)
+* trendy
+</script>
+</span>
+
+<br>
+<img src="./img/node.png" style="height: 4em" class="img-none"> <br>
+
+</section>
+
+<section>
+<span data-markdown>
+<script type="text/template">
+# NPM
+
+* package manager for Node modules
+* popular for throughput (e.g. realtime apps)
+* &gt; 130k packages (2014: 50k, 2013: 20k)
+</script>
+</span>
+
+<br>
+<br>
+<img src="./img/npm.png" style="height: 4em" class="img-none"> <br>
+
+</section>
+<section>
+<span data-markdown>
+<script type="text/template">
+# NPM
+</script>
+</span>
+<div style="float: left; width: 60%">
+	<img src="./img/modulecounts.jpg" style="height: 100%; margin: 0 auto; display: block" class="img-none"> <br>
+</div>
+<style>
+.pure-table td {
+	padding: 0em 1em;
+}
+</style>
+<div style="float: left; width: 39%">
+	<table style="font-size: 0.6em" class="pure-table">
+		<thead>
+	<td>Pkg.mgr</td>
+	<td>AVG Growth</td>
+		</thead>
+		<tbody>
+		<tr>
+	<td> NPM </td>
+	<td> 250 / day</td>
+		</tr>
+		<tr>
+	<td> Go </td>
+	<td> 137 / day</td>
+		</tr>
+		<tr>
+	<td> Maven</td>
+	<td> 96 / day</td>
+		</tr>
+		<tr>
+	<td> Packagist (PHP) </td>
+	<td> 92 / day</td>
+		</tr>
+		<tr>
+	<td> nuget (.NET) </td>
+	<td> 66 / day</td>
+		</tr>
+		<tr>
+	<td> Rubygems </td>
+	<td> 61 / day</td>
+		</tr>
+		<tr>
+	<td> PyPI </td>
+	<td> 57 / day</td>
+		</tr>
+		<tr>
+	<td> CPAN </td>
+	<td> 8 / day</td>
+		</tr>
+		<tr>
+	<td> CRAN </td>
+	<td> 3 / day</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</section>
+
+
+
+<!--
+<section style="height: 80%">
+	<h2> NPM universe </h2>
+
+	<iframe src="https://anvaka.github.io/allnpmviz3d/#" width="100%" height="100%" >
+	</iframe>
+</section>
+-->
+
+<section data-markdown><script type="text/template">
+## Reuse code
+
+exportme.js
+```
+module.exports = function () {
+	return 1;
+};
+```
+
+import.js
+```
+var one = require('./exportme');
+console.log(one)); // 1
+```
+
+</script>
+</section>
+
+<section>
+	<p> &nbsp; </p>
+	<img src="./img/browserify.png" style="max-height: 4em" class="img-none">
+	<pre><code>browserify importme.js > browser.js</code></pre>
+	<pre><code>require=(function e(t,n,r){ [...] // small header (&lt; 1kB)
+	{1:[function(require,module,exports){
+		...
+	}]}
+});</code></pre>
+</section>
+
+</div>
+<div class='footer' style="width: 100%">
+	<a id="biojs-logo" style="float: left; margin-left: 5%" href="http://biojs.net">
+		<img alt="BioJS logo - a registry of biological visualizations" src="img/biojs2.png" width="140" height="40" style="float: left">
+	</a>
+	<a href="/" class="home" title="VIZBI home page" style="color: #F4B;    font-size: 2em; font-weight: bold;text-shadow: 0px 0px 8px; float: right; margin-right: 10%">VIZBI 15</a>
+  </div>
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+
+    // Display controls in the bottom right corner
+    controls: false,
+
+    // Display a presentation progress bar
+    progress: true,
+
+    // Push each slide change to the browser history
+    history: true,
+
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+
+    // Enable the slide overview mode
+    overview: true,
+
+    // Vertical centering of slides
+    center: false,
+
+    // Loop the presentation
+    loop: false,
+
+    // Change the presentation direction to be RTL
+    rtl: false,
+
+    // Number of milliseconds between automatically proceeding to the
+    // next slide, disabled when set to 0, this value can be overwritten
+    // by using a data-autoslide attribute on your slides
+    autoSlide: 0,
+
+    // Enable slide navigation via mouse wheel
+    mouseWheel: false,
+
+    // Apply a 3D roll to links on hover
+    rollingLinks: false,
+
+    // Transition style
+    transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+    dependencies: [
+        // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+        // Interreveal.js/pret Markdown in <section> elements
+        { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'reveal.js/plugin/markdown/markdown.js', 
+          condition: function() { return !!document.querySelector( '[data-markdown]' ); },
+          callback: function() {
+          } },
+
+        // Syntareveal.js/x highlight for <code> elements
+        { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+        // Zoom reveal.js/in and out with Alt+click
+        { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Speakreveal.js/er notes
+        //{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+
+        // Remotreveal.js/e control your reveal.js presentation using a touch device
+        // { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+		// MathJax
+       // { src: 'plugin/math/math.js', async: true }
+    ]
+
+  });
+
+Reveal.addEventListener( 'tree-state', function() {
+	start();
+}, false );
+</script>
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet'; //link.type = 'text/css'; link.media = 'print';
+  link.href = 'reveal.js/css/print/pdf.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+  document.body.style.background = "white";
+}
+</script>
+<script src="js/d3.min.js"></script>
+<script src="js/d3_tree.js"></script>
+</body>
